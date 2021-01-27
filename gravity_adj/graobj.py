@@ -33,11 +33,11 @@ import numpy as np
 import scipy.linalg as slg
 from scipy.sparse import csr_matrix
 from collections import OrderedDict
-import geoist.pfm.tide as tide
+import tide as tide
 from datetime import date, datetime, timedelta
 import h5py
 from functools import wraps
-import geoist.gravity.adjmethods as adj
+import adjmethods as adj
 
 ###############################################################################
 
@@ -1212,8 +1212,8 @@ class Campaign(object):
             #print(self._gravlen)
 
             xinit = 0.01
-            # dinit = 1.0 #initial drift SD value
-            # dinit = 0.03
+            #initial drift SD value
+            
             dinit = 0.0003
             xopt = adj.Bayadj.goadj(self.mat_list, self._gravlen, xinit, dinit, method, maxiter)
 
@@ -1235,18 +1235,16 @@ class Campaign(object):
         elif self.adj_method == 'bay1':
             print(self.adj_method)
             xinit = 0.01
-            # dinit = 1.0  #initial drift SD value
+            #   #initial drift SD value
             dinit = 0.03
-            # dinit = 0.00003
-            # sfinit = 1.0
             sfinit = 0.0005
             if (len(self.survey_list[0].meter_sf_index) != len(self.survey_list[0].meter_list)):
                 raise ValueError('Please check meter_sf_index of Survey object!')
 
             kstart = self.survey_list[0].meter_sf_index #标定格值的仪器设置
             kvalues = self.survey_list[0]._meter_sf #先验仪器格值
-            print ('The prior SF is {0: 3.6f}/{1: 1d}'.format(np.array(kvalues[0]),kstart[0]))
-            print ('The prior SF is {0: 3.6f}/{1: 1d}'.format(np.array(kvalues[1]),kstart[1]))
+            # print ('The prior SF is {0: 3.6f}/{1: 1d}'.format(np.array(kvalues[0]),kstart[0]))
+            # print ('The prior SF is {0: 3.6f}/{1: 1d}'.format(np.array(kvalues[1]),kstart[1]))
 
             xopt = adj.Bayadj1.goadj1(self.mat_list, self._gravlen,
                                      xinit, dinit, sfinit, kstart, kvalues, method, maxiter)
