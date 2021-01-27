@@ -48,7 +48,6 @@ s1.meter_sf_index = [1, 1]
 # [0,1],[1,0] : MBGA method, use the scale factor of one instrument to estimate the other instrument
 # s1.meter_sf_index = [0, 1]  # use G1 (l=1.000000) to estimate G2
 # s1.meter_sf_index = [1, 0]  # use G2 (l=1.000100) to estimate G1 
-
 print(s1)
 
 # Initialize the adjustment object
