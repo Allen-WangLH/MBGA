@@ -30,17 +30,15 @@ print(s1)
 gravwork = gg.Campaign("201708", 1)
 
 # add information of absolute gravity stations 
-# greater than number of the gravity difference
-# >100%
+# greater than the range of the gravity values in the survey network
+# >60%
 gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG1.txt')
 # gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG2.txt')
-# >85%
 # gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG3.txt')
 # gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG4.txt')
-# 70%~85%
+# <60%
 # gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG5.txt')
 # gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG6.txt')
-# <70%
 # gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG7.txt')
 # gravwork.add_ag_from_file('./input/Section3.4_data/Section3.4_AG8.txt')
 # Add measurement to adjustment task
