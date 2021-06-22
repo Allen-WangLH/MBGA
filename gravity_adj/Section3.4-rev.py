@@ -24,8 +24,12 @@ s1 = gg.Survey("benchmark", "201708")
 s1.add_meter(m1)
 s1.net = n1
 # Read observation file of relative gravimeter
-# s1.read_survey_file('./input/Section3.3_data/sim-model1.C098')
-s1.read_survey_file('./input/Section3.3_data/sim-model2.C098')   
+s1.read_survey_file('./input/Section3.3_data/Test1.C098')
+# s1.read_survey_file('./input/Section3.3_data/Test2.C098')
+# s1.read_survey_file('./input/Section3.3_data/Test3.C098')
+# s1.read_survey_file('./input/Section3.3_data/Test7.C098')
+# s1.read_survey_file('./input/Section3.3_data/Test8.C098')
+# s1.read_survey_file('./input/Section3.3_data/Test9.C098')
 s1.corr_aux_effect()  # Get earthtide and atomsphere effect
 
 # 1 : estimated the scale factor
