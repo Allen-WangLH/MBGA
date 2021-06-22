@@ -12,7 +12,6 @@ import adjmethods as adj
 # Initialize the relative gravimeter
 m1 = gg.Meter('CG5','C098')  #Type and ID of relative gravimeter
 
-
 #network name and type
 n1 = gg.Network("NorthChina1",1)  
 #ID, name and coordinates of measuring point
@@ -23,11 +22,11 @@ print(n1)
 s1 = gg.Survey("benchmark", "201708")  
 s1.add_meter(m1)
 s1.net = n1
-# Read observation file of relative gravimeter
-# s1.read_survey_file('./input/Section3.3_data/sim-model1.C098')
-s1.read_survey_file('./input/Section3.3_data/sim-model2.C098')   
-s1.corr_aux_effect()  # Get earthtide and atomsphere effect
-
+# Read observation file of relative gravimeter 
+s1.read_survey_file('./input/Section3.3_data/sim-SD1.C098')
+# s1.read_survey_file('./input/Section3.2_data/sim-SD8.C098')
+# s1.read_survey_file('./input/Section3.2_data/sim-SD15.C098')  
+s1.corr_aux_effect()  # Get earthtide and atomsphere effect 
 # 1 : estimated the scale factor
 s1.meter_sf_index = [1]
 print(s1)

@@ -30,23 +30,24 @@ s1.read_survey_file('./input/Section4_data/YNCW1508.169')
 s1.read_survey_file('./input/Section4_data/YNCW1508.170')
 s1.corr_aux_effect()
 # input scale factors obtained by actual calibration measurement
-# s1.meter_sf_index = [0, 0]
+s1.meter_sf_index = [0, 0]
 # estimated scale factors
-s1.meter_sf_index = [1, 1]
+# s1.meter_sf_index = [1, 1]
 print(s1)
 
 gravwork = gg.Campaign("201508", 1)
 
 # read file of absolute gravity stations
-gravwork.add_ag_from_file('./input/Section4_data/AGYNCW1508(a).txt')
-# gravwork.add_ag_from_file('./input/YNmeasurement_data/AGYNCW1508(b).txt')
-# gravwork.add_ag_from_file('./input/YNmeasurement_data/AGYNCW1508(c).txt')
-# gravwork.add_ag_from_file('./input/YNmeasurement_data/AGYNCW1508(d).txt')
+# gravwork.add_ag_from_file('./input/Section4_data/AGYNCW1508(a).txt')
+# gravwork.add_ag_from_file('./input/Section4_data/AGYNCW1508(b).txt')
+# gravwork.add_ag_from_file('./input/Section4_data/AGYNCW1508(c).txt')
+gravwork.add_ag_from_file('./input/Section4_data/AGYNCW1508(d).txt')
+
 
 gravwork.add_surveys(s1)
 print(gravwork)
 
-gravwork.adj_method = 3 #1:cls ; 2:Baj; 3:Baj1
+gravwork.adj_method = 2 #1:cls ; 2:Baj; 3:Baj1
 
 gravwork.pre_adj()
 gravwork.run_adj('./input/Section4_data/grav_baj.txt', 2)

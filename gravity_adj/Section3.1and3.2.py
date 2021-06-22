@@ -27,7 +27,7 @@ m2.msf = 1.0001   #scale factor with a deviation of 1E-4
 #network name and type
 n1 = gg.Network("NorthChina1",1)  
 #ID, name and coordinates of measuring point
-n1.read_pnts('./input/Section3.1_data/QSCW912017.DZJ')  
+n1.read_pnts('./input/Section3.1and3.2_data/QSCW912017.DZJ')  
 print(n1) 
 
 # Initialize survey
@@ -36,8 +36,8 @@ s1.add_meter(m1)
 s1.add_meter(m2)
 s1.net = n1
 # Read observation file of relative gravimeter
-s1.read_survey_file('./input/Section3.1_data/simG1.C097')  
-s1.read_survey_file('./input/Section3.1_data/simG2.C098')  
+s1.read_survey_file('./input/Section3.1and3.2_data/simG1.C097')  
+s1.read_survey_file('./input/Section3.1and3.2_data/simG2.C098')  
 s1.corr_aux_effect()  # Get earthtide and atomsphere effect
 # 0 : use the input scale factor 
 # 1 : estimated the scale factor
@@ -54,7 +54,7 @@ print(s1)
 gravwork = gg.Campaign("201708", 1)
 
 # add information of absolute gravity stations 
-gravwork.add_ag_from_file('./input/Section3.1_data/Section3.1_AG.txt')
+gravwork.add_ag_from_file('./input/Section3.1and3.2_data/Section3.1_AG.txt')
 
 # Add measurement to adjustment task
 gravwork.add_surveys(s1) 
@@ -71,10 +71,10 @@ gravwork.pre_adj()
 # Running adjustment
 # 1 : Nelder-Mead simplex method used for optimization
 # 2 : BFGS method used for optimization
-gravwork.run_adj('./input/Section3.1_data/grav_baj.txt', 2)
+gravwork.run_adj('./input/Section3.1and3.2_data/grav_baj.txt', 2)
 # Output adjustment results
-gravwork.export_station('./output/Section3.1_output/dz201708.txt') #gravity value
-gravwork.export_dc('./output/Section3.1_output/dc201708.txt')  # gravity difference (unique)
-gravwork.export_dc_all('./output/Section3.1_output/d_to_d201708.txt') # gravity difference (back "-" and forth "+")
+gravwork.export_station('./output/Section3.1and3.2_output/dz201708.txt') #gravity value
+gravwork.export_dc('./output/Section3.1and3.2_output/dc201708.txt')  # gravity difference (unique)
+gravwork.export_dc_all('./output/Section3.1and3.2_output/d_to_d201708.txt') # gravity difference (back "-" and forth "+")
 # export all parameters
-grav_dict1 = json.load(open('./input/Section3.1_data/grav_baj.txt'))
+grav_dict1 = json.load(open('./input/Section3.1and3.2_data/grav_baj.txt'))
